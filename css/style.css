@@ -1,3 +1,245 @@
-img {
+body {
+    margin: 1.5em;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../img/shoe.jpg);
+    background-size: cover;
+    background-position-x: 20%;
+    background-position-y: 20%;
     width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    animation: introLoad 2s forwards;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+
+.logo span {
+    color: black;
+}
+
+nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    height: 100%;
+    z-index: 2;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 8em;
+}
+
+.link-menu {
+    color: black;
+    padding: .75em 2em;
+    display: block;
+}
+
+.close {
+    float: right;
+    margin: 2em;
+    width: 2.5em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-icon {
+    width: 2.3em;
+    margin-top: -.6em;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 3.3rem;
+}
+
+.subhead {
+    font-size: 1.4rem;
+}
+
+.hero {
+    color: white;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.down-arrow {
+    stroke: white;
+    position: absolute;
+    bottom: 2em;
+    width: 1em;
+    animation: moveArrow 1s alternate-reverse infinite;
+}
+
+
+/* path del svg */
+
+.arrow {
+    fill: white;
+}
+
+.more-info img {
+    width: 100%;
+    object-fit: cover;
+    height: 12em;
+}
+
+.more-info .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.more-info .desc {
+    line-height: 1.5rem;
+}
+
+.open-nav {
+    transform: translate(0);
+}
+
+@media only screen and (min-width: 580px) {
+    body {
+        margin: 1.5em 5em;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .menu {
+        display: none;
+    }
+    nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none
+    }
+    svg.close {
+        display: none;
+    }
+    ul {
+        display: flex;
+        margin: 0;
+    }
+    .link-menu {
+        color: white;
+        padding: .5em 1.5em;
+        font-size: .9rem;
+    }
+    .hero-img {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 42em;
+    }
+    .logo {
+        color: black;
+    }
+    .logo span {
+        color: red;
+    }
+    section.hero {
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+        ;
+    }
+    section.hero svg.down-arrow {
+        stroke: black;
+        position: unset;
+    }
+    .arrow {
+        fill: black;
+    }
+    .feature {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+    }
+    .feature img {
+        width: 25em;
+    }
+    .feature .content {
+        text-align: right;
+        width: 25em;
+    }
+    .feature.left {
+        grid-template-areas: "left right";
+    }
+    .feature.left img {
+        grid-area: left;
+    }
+    .feature .content {
+        text-align: left;
+        width: 25em;
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .feature {
+        gap: 0;
+    }
+}
+
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes moveArrow {
+    from {
+        transform: translateY(-20px)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px)
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
